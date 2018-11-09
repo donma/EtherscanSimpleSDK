@@ -26,7 +26,7 @@ namespace EtherscanParse.Test
             Console.WriteLine("Gas Price:" + ((decimal)Int64.Parse(info.result.gasPrice.Replace("0x", ""), NumberStyles.AllowHexSpecifier) / 1000000000000000000).ToString(""));
            
             Console.WriteLine("From:"+info.result.from);
-            Console.WriteLine("To:" + info.result.from);
+            Console.WriteLine("To:" + info.result.to);
 
             Console.WriteLine("hash(TXID):" + info.result.hash);
             Console.WriteLine("value:" + ((decimal)Int64.Parse(info.result.value.Replace("0x", ""), NumberStyles.AllowHexSpecifier) / 1000000000000000000).ToString(""));
