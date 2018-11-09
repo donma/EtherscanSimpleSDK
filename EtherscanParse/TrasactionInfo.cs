@@ -11,6 +11,14 @@ namespace EtherscanParse
         public string jsonrpc { get; set; }
         public int id { get; set; }
         public Result result { get; set; }
+        public Error error { get; set; }
+
+
+        public class Error
+        {
+            public int code { get; set; }
+            public string message { get; set; }
+        }
 
         public class Result
         {

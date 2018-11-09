@@ -10,6 +10,14 @@ namespace EtherscanParse
         public string status { get; set; }
         public string message { get; set; }
         public List<Result> result { get; set; }
+        public Error error { get; set; }
+
+
+        public class Error
+        {
+            public int code { get; set; }
+            public string message { get; set; }
+        }
 
         public class Result
         {
