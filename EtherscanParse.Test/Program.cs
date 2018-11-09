@@ -10,7 +10,8 @@ namespace EtherscanParse.Test
 
 
             var YOUR_TOKEN = "YourApiKeyToken";
-            var TXID = "0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c";
+            //var TXID = "0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c";
+            var TXID = "123";
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Test Start...");
@@ -26,7 +27,7 @@ namespace EtherscanParse.Test
             Console.WriteLine("Gas Price:" + ((decimal)Int64.Parse(info.result.gasPrice.Replace("0x", ""), NumberStyles.AllowHexSpecifier) / 1000000000000000000).ToString(""));
            
             Console.WriteLine("From:"+info.result.from);
-            Console.WriteLine("To:" + info.result.from);
+            Console.WriteLine("To:" + info.result.to);
 
             Console.WriteLine("hash(TXID):" + info.result.hash);
             Console.WriteLine("value:" + ((decimal)Int64.Parse(info.result.value.Replace("0x", ""), NumberStyles.AllowHexSpecifier) / 1000000000000000000).ToString(""));

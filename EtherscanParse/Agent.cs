@@ -29,7 +29,7 @@ namespace EtherscanParse
                 throw new Exception("Null wallet");
             }
 
-            var url = "https://api.etherscan.io/api?module=account&action=txlist&address=0xc2bd9ef5433d239d6a36029d78fffd18d59f1877&startblock=" + blockNumber + "&endblock=" + blockNumber + "&page=1&offset=9999&sort=asc&apikey=" + Token;
+            var url = "https://api.etherscan.io/api?module=account&action=txlist&address="+ wallet + "&startblock=" + blockNumber + "&endblock=" + blockNumber + "&page=1&offset=9999&sort=asc&apikey=" + Token;
 
             using (HttpClient client = new HttpClient())
             {
@@ -54,7 +54,7 @@ namespace EtherscanParse
             }
             using (HttpClient client = new HttpClient())
             {
-                //https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=0x58d6ac3734ce06cb1a84f54fd1ab86658168a6e7ecdbe2d16638a4e2459ac35b&apikey=YCZ48RBBCYTM2QFIWP21I1GT29IE2FSKR9
+                //https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=0x58d6ac3734ce06cb1a84f54fd1ab86658168a6e7ecdbe2d16638a4e2459ac35b&apikey=YourApiKeyToken
                 HttpResponseMessage response = client.GetAsync("https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash=" + txid + "&apikey=" + Token).Result;
              
                 var res = response.Content.ReadAsStringAsync().Result;
