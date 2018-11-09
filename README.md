@@ -8,4 +8,8 @@ API 位置 : https://etherscan.io/apis
 
 ![alt SampleResult](https://github.com/donma/EtherscanSimpleSDK/blob/master/result1.jpg?raw=true)
 
+
+introduction: http://no2don.blogspot.com/2018/11/c-etherscan-gas-from-to-blocknumber.html
+
+
 就參考一下吧 :)
