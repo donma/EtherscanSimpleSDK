@@ -53,6 +53,37 @@ namespace EtherscanParse
 
         }
 
+        public TransactionStatusInfo GetTransactionStatus(string txid) {
+            if (string.IsNullOrEmpty(Token))
+            {
+                throw new Exception("Null Token");
+            }
+            if (string.IsNullOrEmpty(txid))
+            {
+                throw new Exception("Null txid");
+            }
+            using (HttpClient client = new HttpClient())
+            {
+                //https://api.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=0x76296b964858432b4fcb5852d50221e891d7787ba6ba10299aaa807e927d6fc2&apikey=YourApiKeyToken
+                HttpResponseMessage response = client.GetAsync("https://api.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=" + txid + "&apikey=" + Token).Result;
+
+                var res = response.Content.ReadAsStringAsync().Result;
+
+
+                var r = JsonConvert.DeserializeObject<TransactionStatusInfo>(res);
+
+                if (r.error != null)
+                {
+                    throw new Exception(r.error.message);
+                }
+                else
+                {
+                    return r;
+
+                }
+            }
+        }
+
         public TrasactionInfo GetTrasactionInfo(string txid)
         {
             if (string.IsNullOrEmpty(Token))

@@ -11,7 +11,7 @@ namespace EtherscanParse.Test
 
             var YOUR_TOKEN = "YourApiKeyToken";
             //var TXID = "0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c";
-            var TXID = "123";
+            var TXID = "0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c";
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Test Start...");
@@ -37,8 +37,14 @@ namespace EtherscanParse.Test
             Console.WriteLine("\r\n-----------------------------------------\r\n");
 
 
+
+            Console.WriteLine("\r\nCheck Fail Status(0x76296b964858432b4fcb5852d50221e891d7787ba6ba10299aaa807e927d6fc2) :" + service.GetTransactionStatus("0x76296b964858432b4fcb5852d50221e891d7787ba6ba10299aaa807e927d6fc2").result.status+"\r\n");
+            Console.WriteLine("\r\nCheck Success Status(0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c) :" + service.GetTransactionStatus("0xe9156fcd7ea1122bd97fd2cc58784b83e66385da41333753f0e1d584002aaf2c").result.status + "\r\n");
             var TEST_WALLET_ADDRESS = "0xc2bd9ef5433d239d6a36029d78fffd18d59f1877";
 
+
+
+            Console.WriteLine("\r\n-----------------------------------------\r\n");
 
             var brInfo= service.GetBlockrewardWalletInfo(Convert.ToInt32(info.result.blockNumber, 16).ToString(), TEST_WALLET_ADDRESS);
 
